@@ -1,13 +1,11 @@
 # create-react-library
 
-> CLI for easily publishing modern React libraries with Rollup and example usage via create-react-app.
+> CLI for creating reusable, modern React libraries using Rollup and create-react-app.
 
 [![NPM](https://img.shields.io/npm/v/create-react-library.svg)](https://www.npmjs.com/package/create-react-library) [![Build Status](https://travis-ci.com/transitive-bullshit/create-react-library.svg?branch=master)](https://travis-ci.com/transitive-bullshit/create-react-library) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
 ## Intro
-
-**The purpose of this CLI is to make publishing your own React components as simple as possible.**
 
 <p align="center">
   <img width="600" src="https://cdn.rawgit.com/transitive-bullshit/create-react-library/master/media/demo.svg">
@@ -20,8 +18,8 @@
 - Handles all modern JS features
 - Bundles `cjs` and `es` module formats
 - [create-react-app](https://github.com/facebookincubator/create-react-app) for example usage and local dev
-- [Rollup](https://rollupjs.org/) for build process
-- [Babel](https://babeljs.io/) for transpilation
+- [Rollup](https://rollupjs.org/) for bundling
+- [Babel](https://babeljs.io/) for transpiling
 - [Jest](https://facebook.github.io/jest/) for testing
 - Supports complicated peer-dependencies
 - Supports CSS modules
@@ -48,7 +46,7 @@ create-react-library
 ```
 
 Answer some basic prompts about your module, and then the CLI will perform the following steps:
-- copy over the template to a new folder in the current directory
+- copy over the template
 - install dependencies via yarn or npm
 - link packages together for local development
 - initialize local git repo
@@ -62,9 +60,9 @@ At this point, your new module should resemble this screenshot and is all setup 
 
 ## Development
 
-Local development is broken into two parts.
+Local development is broken into two parts (ideally using two tabs).
 
-First, you'll run rollup to watch your `src/` module and automatically recompile it into `dist/` whenever you make changes.
+First, run rollup to watch your `src/` module and automatically recompile it into `dist/` whenever you make changes.
 
 ```bash
 npm start # runs rollup with watch flag
@@ -85,23 +83,22 @@ Now, anytime you make a change to your library in `src/` or to the example app's
 
 #### Publishing to NPM
 
-The only difference when publishing your library to **npm** is to make sure that any npm modules you want as peer dependencies are properly marked as `peerDependencies` in `package.json`. The rollup config will automatically recognize them as peers and not try to bundle them in your module.
-
-Then publish as per usual.
-
 ```bash
-# note this will build `commonjs` and `es`versions of your module to dist/
 npm publish
 ```
 
+This builds `cjs` and `es` versions of your module to `dist/` and then publishes your module to `npm`.
 
-#### Github Pages
+Make sure that any npm modules you want as peer dependencies are properly marked as `peerDependencies` in `package.json`. The rollup config will automatically recognize them as peers and not try to bundle them in your module.
 
-Deploying the example to github pages is simple. We create a production build of our example `create-react-app` that showcases your library and then run `gh-pages` to deploy the resulting bundle. This can be done as follows:
+
+#### Deploying to Github Pages
 
 ```bash
 npm run deploy
 ```
+
+This creates a production build of the example `create-react-app` that showcases your library and then runs `gh-pages` to deploy the resulting bundle.
 
 
 ## Examples
@@ -133,9 +130,11 @@ Here are some example libraries that have been bootstrapped with `create-react-l
 - [worldwind-react-globe](https://github.com/emxsys/worldwind-react-globe) - NASA WorldWind globe component for React.
 - [react-shimmer](https://github.com/gokcan/react-shimmer) - Shimmer effect for loading images.
 - [react-login-modal-sm](https://github.com/Silind/react-login-modal-sm) - Customizable React social media login modal.
+- [react-gradient-scroll-indicator](https://github.com/jbccollins/react-gradient-scroll-indicator) - Wrapper for scrollable content with gradients.
 - ... and hundreds more!
 
 Want to add yours to the list? Submit an [issue](https://github.com/transitive-bullshit/create-react-library/issues/new).
+
 
 ## License
 

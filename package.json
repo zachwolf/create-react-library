@@ -1,6 +1,6 @@
 {
   "name": "create-react-library",
-  "version": "2.5.1",
+  "version": "2.6.7",
   "description": "CLI for easily bootstrapping modern react libraries",
   "repository": "transitive-bullshit/create-react-library",
   "author": "Travis Fischer <travis@automagical.ai>",
@@ -30,6 +30,7 @@
     "publish"
   ],
   "dependencies": {
+    "chalk": "2.4.1",
     "commander": "^2.16.0",
     "conf": "^2.0.0",
     "cp-file": "^6.0.0",
